@@ -33,7 +33,7 @@ public class Ideas_Times_Any {
 		int scale = 2; //scales number by x amount
 
 		// Reader
-		String fileName = "txtNumb.txt"; //name of file you want to change
+		String fileName = "00_country_ideas.txt"; //name of file you want to change
 		File file = new File(fileName);
 		Scanner reader = new Scanner(file);
 
