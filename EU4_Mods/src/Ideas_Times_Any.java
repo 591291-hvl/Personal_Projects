@@ -17,7 +17,7 @@ public class Ideas_Times_Any {
 
 	public static boolean isNumber(String str) {
 		try {
-			double nmbr = Double.parseDouble(str);
+			Double.parseDouble(str);
 			return true;
 		} catch (NumberFormatException e) {
 			return false;
@@ -30,10 +30,10 @@ public class Ideas_Times_Any {
 	}
 
 	public static void main(String[] args) throws Exception {
-		int scale = 2; //scales number by x amount
+		int scale = 10; // scales number by x amount
 
 		// Reader
-		String fileName = "00_country_ideas.txt"; //name of file you want to change
+		String fileName = "00_country_ideas.txt"; // name of file you want to change
 		File file = new File(fileName);
 		Scanner reader = new Scanner(file);
 
@@ -41,8 +41,11 @@ public class Ideas_Times_Any {
 		String fileName2 = nameConverter(fileName, scale);
 		PrintWriter writer = new PrintWriter(fileName2);
 
-		//Array of excluded words
-		String[] excludes = { "vassal", "num_of_cities", "num_of_ports", "province_id", "is_year", "factor", "legitimacy", "tax_income_percentage", "army_size_percentage","average_effective_unrest","colonist_placement_chance","average_autonomy_above_min","production_income_percentage","trade_income_percentage" };
+		// Array of excluded words
+		String[] excludes = { "vassal", "num_of_cities", "num_of_ports", "province_id", "is_year", "factor",
+				"legitimacy", "tax_income_percentage", "army_size_percentage", "average_effective_unrest",
+				"colonist_placement_chance", "average_autonomy_above_min", "production_income_percentage",
+				"trade_income_percentage", "navy_size" };
 		boolean excludeFound = false;
 		String line = "";
 		String[] lineArray = null;
@@ -50,10 +53,11 @@ public class Ideas_Times_Any {
 			line = reader.nextLine();
 			lineArray = line.split(" ");
 			for (int i = 0; i < lineArray.length; i++) {
-
+				
 				if (isNumber(lineArray[i])) {
 
 					for (String v : excludes) {
+						
 						if (lineArray[i - 2].replace("\t", "").equals(v)) {
 							excludeFound = true;
 							break;
